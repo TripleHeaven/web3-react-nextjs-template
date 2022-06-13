@@ -1,0 +1,36 @@
+{
+  "name": "react-template",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "generate-contract-types": "typechain --target ethers-v5 --out-dir './contracts/types' './contracts/*.json'"
+  },
+  "dependencies": {
+    "ethers": "^5.6.8",
+    "next": "12.1.6",
+    "react": "18.1.0",
+    "react-dom": "18.1.0"
+  },
+  "devDependencies": {
+    "@ethersproject/providers": "^5.6.8",
+    "@types/node": "17.0.42",
+    "@types/react": "18.0.12",
+    "@types/react-dom": "18.0.5",
+    "@web3-react/core": "^6.1.9",
+    "@web3-react/injected-connector": "^6.0.7",
+    "@web3-react/types": "8.0.19-beta.0",
+    "@web3-react/walletconnect-connector": "^6.2.13",
+    "autoprefixer": "^10.4.7",
+    "clsx": "^1.1.1",
+    "eslint": "8.17.0",
+    "eslint-config-next": "12.1.6",
+    "postcss": "^8.4.14",
+    "sass": "^1.52.3",
+    "tailwindcss": "^3.1.2",
+    "typescript": "4.7.3"
+  }
+}
