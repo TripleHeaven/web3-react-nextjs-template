@@ -1,7 +1,9 @@
-import { useConnectionContext } from "../../context";
+import { useAppSelector } from "../../store/store";
 
 export const ConnectionStatus = () => {
-  const { isActive, account } = useConnectionContext();
+  const { address, balance } = useAppSelector((state) => {
+    return state.setupWeb3Reducer;
+  });
 
-  return <div>{`Connected? : ${isActive}\nConnected account ${account}`}</div>;
+  return <div>{`Connected ${address}`}</div>;
 };

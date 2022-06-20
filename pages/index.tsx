@@ -1,11 +1,13 @@
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useDispatch } from "react-redux";
 import { ConnectButton, ConnectionStatus } from "../components";
 import { Connectors } from "../constants";
-import { useConnectionContext } from "../context";
+import { useAppDispatch } from "../store/store";
+import { clearWeb3, setupWeb3 } from "../store/web3slice/web3slice";
 
 const Home: NextPage = () => {
-  const { connect, disconnect } = useConnectionContext();
+  const dispatch = useAppDispatch();
 
   return (
     <div>
@@ -20,25 +22,17 @@ const Home: NextPage = () => {
           <ConnectionStatus />
           <div className="flex flex-col gap-[44px] my-auto max-w-[367px] mx-auto">
             <ConnectButton
-              src="/assets/wcLogo.png"
-              label="Wallet Connect"
-              connectCallback={() => {
-                connect(Connectors.walletConnect);
-              }}
-            />
-
-            <ConnectButton
               src="/assets/metaMaskLogo.png"
               label="Metamask"
               connectCallback={() => {
-                connect(Connectors.metamask);
+                dispatch(setupWeb3());
               }}
             />
 
             <button
               className="br-[8px] border-2 h-[82px] p-[4px]"
               onClick={() => {
-                disconnect();
+                dispatch(clearWeb3());
               }}
             >
               <p>Disconnect</p>
